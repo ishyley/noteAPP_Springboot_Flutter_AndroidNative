@@ -1,0 +1,92 @@
+############################
+#  BACKEND (Spring Boot)
+############################
+
+# Gradle
+############################
+#  BACKEND (Spring Boot)
+############################
+
+# Gradle
+springbootBackend/.gradle/
+springbootBackend/build/
+
+# OR if using Maven (optional)
+springbootBackend/target/
+
+############################
+# FRONTEND (Flutter)
+############################
+
+flutterfrontend/.dart_tool/
+flutterfrontend/.packages
+flutterfrontend/build/
+flutterfrontend/.flutter-plugins
+flutterfrontend/.flutter-plugins-dependencies
+
+############################
+# COMMON
+############################
+
+# Logs
+*.log
+
+# Java
+*.class
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+############################
+#  OPTIONAL (safe ignores)
+############################
+
+# Cache / temp
+.cache/
+springbootBackend/build/
+
+# OR if using Maven (optional)
+springbootBackend/target/
+
+############################
+# flutterfrontend (Flutter)
+############################
+
+flutterfrontend/.dart_tool/
+flutterfrontend/.packages
+flutterfrontend/build/
+flutterfrontend/.flutter-plugins
+flutterfrontend/.flutter-plugins-dependencies
+
+############################
+# COMMON
+############################
+
+# Logs
+*.log
+
+# Java
+*.class
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+
+############################
+# OPTIONAL (safe ignores)
+############################
+
+# Cache / temp
+.cache/
+.history/
