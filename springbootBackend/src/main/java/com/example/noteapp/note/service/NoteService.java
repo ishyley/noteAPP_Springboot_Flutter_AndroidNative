@@ -1,6 +1,7 @@
 package com.example.noteapp.note.service;
 
 import com.example.noteapp.note.model.Note;
+import com.example.noteapp.note.model.User;
 import com.example.noteapp.note.repository.NoteRepository;
 import org.springframework.stereotype.Service;
 
@@ -14,15 +15,16 @@ public class NoteService {
         this.noteRepository = noteRepository;
     }
 
-    public List<Note> getAllNote(){
+    public List<Note> getAllNote() {
         return noteRepository.findAll();
     }
 
-    public Note saveNote(Note note){
+    public Note createNote(Note note) {
+//        User user =
         return noteRepository.save(note);
     }
 
-    public void deleteNoteById(Long id){
+    public void deleteNoteById(Long id) {
         noteRepository.deleteById(id);
     }
 }
