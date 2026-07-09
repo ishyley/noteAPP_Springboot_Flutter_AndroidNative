@@ -1,13 +1,15 @@
 package com.example.noteapp.note.controller;
 
+import com.example.noteapp.note.dto.request.NoteRequest;
+import com.example.noteapp.note.dto.response.NoteResponse;
 import com.example.noteapp.note.model.Note;
 import com.example.noteapp.note.service.NoteService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.List;
 
 @RestController
-@RequestMapping("/api/notes")
+@RequestMapping("/notes")
 public class NoteController {
 
     private final NoteService noteService;
@@ -16,14 +18,22 @@ public class NoteController {
         this.noteService = noteService;
     }
 
-    @GetMapping
-    public List<Note> getAllNotes() {
-        return noteService.getAllNote();
+    @GetMapping("/getallnote")
+    public List<NoteResponse> getAllNotes() {
+        return noteService.getAllNotes();
     }
 
-    @PostMapping
-    public Note createNote(@RequestBody Note note) {
-        return noteService.saveNote(note);
+    @PostMapping("/createnote")
+    public NoteResponse createNote(@RequestBody NoteRequest request) {
+        return noteService.createNote(request);
+    }
+
+    @PutMapping("/{id}")
+    public Note updateNote(
+            @PathVariable Long id,
+            @RequestBody NoteRequest request) {
+
+        return noteService.updateNote(id, request);
     }
 
     @DeleteMapping("/{id}")

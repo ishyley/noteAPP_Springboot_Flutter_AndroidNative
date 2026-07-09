@@ -3,6 +3,7 @@ package com.example.noteapp.note.service;
 import com.example.noteapp.note.dto.request.LoginRequest;
 import com.example.noteapp.note.dto.request.RegisterRequest;
 import com.example.noteapp.note.exception.EmailAlreadyExistsException;
+import com.example.noteapp.note.model.EmailVerificationToken;
 import com.example.noteapp.note.model.User;
 import com.example.noteapp.note.repository.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -10,8 +11,10 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class AuthService {
@@ -38,7 +41,18 @@ public class AuthService {
         User user = new User()
                 .setEmail(request.getEmail())
                 .setUsername(request.getUsername())
-                .setPassword(passwordEncoder.encode(request.getPassword()));
+                .setPassword(passwordEncoder.encode(request.getPassword()))
+                .setEmailVerified(false);
+
+//        userRepository.save(user);
+//
+//        String token = UUID.randomUUID().toString();
+//
+//        EmailVerificationToken emailVerificationToken = new EmailVerificationToken();
+//
+//        emailVerificationToken.setToken(token);
+//        emailVerificationToken.setUser(user);
+//        emailVerificationToken.setExpiryDate(LocalDateTime.now().plus(10));
 
         return userRepository.save(user);
     }
